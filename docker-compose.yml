@@ -1,0 +1,73 @@
+version: '3'
+
+services:
+  selenium-hub:
+    image: selenium/hub:3.141.59-20200409
+    container_name: selenium-hub
+    platform: linux/amd64
+    ports:
+      - "4444:4444"
+    networks:
+      - collabnet
+
+  firefox:
+    image: selenium/node-firefox:3.141.59-20200409
+    volumes:
+      - /dev/shm:/dev/shm
+    depends_on:
+      - selenium-hub
+    platform: linux/amd64
+    environment:
+      - HUB_HOST=selenium-hub
+      - HUB_PORT=4444
+      - START_XVFB=true
+    networks:
+      - collabnet
+
+  chrome:
+    image: selenium/node-chrome:3.141.59-20200409
+    volumes:
+      - /dev/shm:/dev/shm
+    depends_on:
+      - selenium-hub
+    platform: linux/amd64
+    environment:
+      - HUB_HOST=selenium-hub
+      - HUB_PORT=4444
+      - START_XVFB=true
+    networks:
+      - collabnet
+
+  chrome-debug:
+    image: selenium/node-chrome-debug:3.141.59-20200409
+    volumes:
+      - /dev/shm:/dev/shm
+    depends_on:
+      - selenium-hub
+    platform: linux/amd64
+    environment:
+      - HUB_HOST=selenium-hub
+      - HUB_PORT=4444
+      - START_XVFB=true
+    ports:
+      - "5900:5900"
+    networks:
+      - collabnet
+
+  hubscraper:
+    build: ./hubscraper
+    depends_on:
+      - chrome
+    platform: linux/amd64
+    environment:
+      - HUB_HOST=selenium-hub
+      - HUB_PORT=4444
+      - BROWSER=chrome
+      - LOGGING_CONFIG_YAML=./logging.yaml
+    volumes:
+      - ./eb/screenshots:/code/screenshots
+    networks:
+      - collabnet
+
+networks:
+  collabnet:

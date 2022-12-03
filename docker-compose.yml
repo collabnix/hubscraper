@@ -65,7 +65,7 @@ services:
       - BROWSER=chrome
       - LOGGING_CONFIG_YAML=./logging.yaml
     volumes:
-      - ./eb/screenshots:/code/screenshots
+      - ./collabnix/screenshots:/code/screenshots
     networks:
       - collabnet
 

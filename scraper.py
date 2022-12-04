@@ -6,6 +6,11 @@ import re
 
 # Selenium 4 for loading the Browser Driver 
 from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.chrome.service import Service
+
+# Web Driver Manager
+from webdriver_manager.chrome import ChromeDriverManager
 
 # BeautifulSoup Library used for Parsing the HTML 
 from bs4 import BeautifulSoup
@@ -24,7 +29,9 @@ writer.writerow(['Image Name','Downloads','Stars'])
 
 
 # Initialising the Chrome Driver
-driver = webdriver.Chrome(executable_path = "/Users/ajeetraina/Downloads/chromedriver\ 3")
+options = Options()
+options.add_argument("start-maximized")
+driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
 
 # Images Type which have to filitered from the DockerHub 
 images = ["official"]
@@ -40,7 +47,7 @@ for i in images:
             "https://hub.docker.com/search?q=&type=image&image_filter=" + i + "&operating_system=linux&architecture"
                                                                               "=arm64&page=" + str(counter))
         
-        # Delay to load the contents of the 
+        # Delay to load the contents of the HTML FIle
         time.sleep(2)
         
         # Parse processed webpage with BeautifulSoup

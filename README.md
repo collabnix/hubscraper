@@ -67,4 +67,21 @@ python3 scraper.py
 <img width="784" alt="image" src="https://user-images.githubusercontent.com/34368930/205429792-03e64b91-72f0-4e9a-83d9-e0c34b850be4.png">
 
 
+## Building with Docker
+
+
+```
+git clone https://github.com/collabnix/hubscraper/
+docker build -t ajeetraina/hubscraper .
+```
+
+## Runng the Hubscraper in a Docker container
+
+```
+docker run --platform=linux/amd64 -it -w /app -v $(pwd):/app ajeetraina/scraperhubb bash
+root@960e8b9fa2c2:/usr/workspace# python scraper.py 
+[WDM] - Downloading: 100%|███████████████████████████████████████████████████████████████| 6.96M/6.96M [00:00<00:00, 8.90MB/s]
+```
+
+
 

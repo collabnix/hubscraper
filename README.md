@@ -1,3 +1,11 @@
+![stars](https://img.shields.io/github/stars/collabnix/hubscraper)
+![forks](https://img.shields.io/github/forks/collabnix/hubscraper)
+![Discord](https://img.shields.io/discord/1020180904129335379)
+![issues](https://img.shields.io/github/issues/collabnix/hubscraper)
+![Visitor count](https://shields-io-visitor-counter.herokuapp.com/badge?page=collabnix.hubscraper)
+![Twitter](https://img.shields.io/twitter/follow/collabnix?style=social)
+
+
 # python-dockerhub-scraper
 A Docker image that scraps Docker Hub official and verfied Images.
 

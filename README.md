@@ -75,7 +75,7 @@ git clone https://github.com/collabnix/hubscraper/
 docker build -t ajeetraina/hubscraper .
 ```
 
-## Runng the Hubscraper in a Docker container
+## Running the Hubscraper in a Docker container
 
 ```
 docker run --platform=linux/amd64 -it -w /app -v $(pwd):/app ajeetraina/scraperhubb bash

@@ -6,7 +6,7 @@
 ![Twitter](https://img.shields.io/twitter/follow/collabnix?style=social)
 
 
-# python-dockerhub-scraper
+# Hubscraper - Scraping Docker Hub for Official Images and Extensions
 A Docker image that scraps Docker Hub official and verfied Images.
 
 A Handy Python script for web scraping dynamically the Docker Hub website. 
